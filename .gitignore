@@ -1,0 +1,28 @@
+# Python
+natvis_env/
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Database
+database/wildsense.db
+database/seed_checkpoint.json
+
+# Models
+models/best_model.pth
+*.pth
+
+# Text similarity cache
+text_similarity/species_descriptions.json
+
+# Node
+natvis-frontend/node_modules/
+natvis-frontend/dist/
+natvis-frontend/.vite/
+
+# OS
+.DS_Store
+Thumbs.db
+
+database/seed_checkpoint.json

@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* ── Colors ── */
+  --bg-deep: #060e06;
+  --bg-dark: #0c1a0c;
+  --bg-card: rgba(14, 26, 14, 0.92);
+  --bg-glass: rgba(16, 30, 16, 0.85);
+  --bg-input: rgba(20, 36, 20, 0.8);
+  --border-subtle: rgba(134, 193, 100, 0.12);
+  --border-glow: rgba(134, 193, 100, 0.35);
+  --accent: #86c164;
+  --accent-dim: #4a7c35;
+  --accent-bright: #a8e67a;
+  --text-primary: #e8f0e0;
+  --text-secondary: #a8b8a0;
+  --text-muted: #5a7854;
+  --text-dim: #3d5238;
+  --danger-none: #4ade80;
+  --danger-low: #a3e635;
+  --danger-moderate: #fbbf24;
+  --danger-high: #f97316;
+  --danger-extreme: #ef4444;
+
+  /* ── Typography ── */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+
+  /* ── Spacing ── */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-deep);
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { 
+  background: rgba(134, 193, 100, 0.2); 
+  border-radius: var(--radius-full); 
+}
+
+/* ── Canvas ── */
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+canvas {
+  display: block;
+}
+
+/* ── Glass morphism ── */
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border: 1px solid var(--border-subtle);
+}
+
+.glass-strong {
+  background: rgba(8, 16, 8, 0.92);
+  backdrop-filter: blur(40px) saturate(1.5);
+  -webkit-backdrop-filter: blur(40px) saturate(1.5);
+  border: 1px solid var(--border-subtle);
+}
+
+/* ── Overlay backdrop ── */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 8, 4, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Keyframes ── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ── Utility ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+textarea, select, input, button {
+  -webkit-appearance: none;
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ── Mobile First Responsive ── */
+@media (min-width: 768px) {
+  .modal-content {
+    max-width: 640px;
+    max-height: 85vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .modal-content {
+    max-width: 720px;
+  }
+}
